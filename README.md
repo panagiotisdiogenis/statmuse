@@ -1,3 +1,5 @@
 # Deployment
 
-This project was deployed with [Vercel](https://statmuse.vercel.app).
+https://statmuse.vercel.app
+
+This project was deployed with [Vercel](https://vercel.com).
