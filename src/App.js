@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+// import Breadcrumb from './Breadcrumb';
+import Header from './Header';
+import Item from './Item';
 import './App.css';
 
 function App() {
+  const images = [];
+
+  for (let i = 1; i <= 9; i++) {
+    images.push(require(`./images/${i}.jpg`));
+  }
+  const shuffledImages = images.sort(() => Math.random() - 0.5);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container mx-auto max-w-5xl">
+      <Header />
+      {/* <Breadcrumb />*/}
+      <div class="grid md:grid-cols-3 gap-4 grid-cols-1 p-4">
+        {shuffledImages.map((image, index) => (
+          <Item key={index} image={image} />
+        ))}
+      </div>
     </div>
   );
 }
