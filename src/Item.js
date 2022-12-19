@@ -1,30 +1,15 @@
 import React from 'react';
 
-const Item = ({ image }) => {
-
-  const fileName = image.split('/').pop().split('.').shift();
-  const title = fileName.replace(/-/g, ' ');
-  const playerMap = {
-    1: 'Jimmy Butler',
-    2: 'Steph Curry',
-    3: 'Kevin Durant',
-    4: 'Giannis Antetokounmpo',
-    5: 'Lebron James',
-    6: 'Lonzo Ball',
-    7: 'Luka Dončić',
-    8: 'Chris Paul',
-    9: 'Jayson Tatum'
-  }
+const Item = ({ image, title, onClick }) => {
 
   return (
-    <div class="container border-2 border-transparent hover:border-gray-100 rounded-md cursor-pointer">
+    <div className="container cursor-pointer" onClick={() => onClick({ image, title })}>
       <img
         src={image}
         alt="T-Shirt"
-        className="w-full h-64 object-cover p-4"
+        className="w-full h-64 object-cover p-4 transition duration-0 hover:duration-150 hover:scale-110"
       />
-
-      <p className="text-md text-center font-extrabold">{playerMap[title]}</p>
+      <p className="text-md text-center font-extrabold">{title}</p>
       <p className="text-md text-center font-extrabold pb-4">T-Shirt</p>
     </div>
   );
